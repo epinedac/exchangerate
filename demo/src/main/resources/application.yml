@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: currency-conversion-service
+  main:
+    web-application-type: reactive
+server:
+  port: 8080
+exchange-service:
+  url: http://localhost:8082  # URL del segundo microservicio `exchange-service`
+
+# Resilience4j configuración
+resilience4j:
+  retry:
+    instances:
+      exchangeRateRetry:
+        max-attempts: 3
+        wait-duration: 1000ms
+  circuitbreaker:
+    instances:
+      exchangeRateCircuitBreaker:
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10000ms

@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: ExchangeRate
+  main:
+    web-application-type: reactive
+server:
+  port: 8082
+
+# Configuración de tipos de cambio
+exchange:
+  rates:
+    USD_TO_EUR: 0.85
+    EUR_TO_USD: 1.18
+    USD_TO_PEN: 3.75
+    PEN_TO_USD: 0.27
